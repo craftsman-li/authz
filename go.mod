@@ -4,8 +4,8 @@ require (
 	github.com/Knetic/govaluate v3.0.0+incompatible // indirect
 	github.com/Sirupsen/logrus v1.0.6
 	github.com/casbin/casbin v1.6.0
-	github.com/casbin/gorm-adapter v0.0.0-20171006093545-e56c6daebd5e // indirect
 	github.com/craftsman-li/biz v0.0.0-20180901123855-c406ca9422ee // indirect
+	github.com/craftsman-li/gorm-adapter v0.0.0-20171006093545-e56c6daebd5e // indirect
 	github.com/craftsman-li/kit-wrapper v0.0.0-20180826092309-e736458d3bff
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-contrib/sessions v0.0.0-20180724132311-854e10e72056

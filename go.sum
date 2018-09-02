@@ -9,6 +9,8 @@ github.com/casbin/gorm-adapter v0.0.0-20171006093545-e56c6daebd5e h1:oRnt5POJBG4
 github.com/casbin/gorm-adapter v0.0.0-20171006093545-e56c6daebd5e/go.mod h1:1E0t3/djAo+vIvDfNPGigJjLMyoh2XNesXMW69R3ykA=
 github.com/craftsman-li/biz v0.0.0-20180901123855-c406ca9422ee h1:UUGbQiBDTiLIJMeEESv85qQWhICHF1vRFt2osj28xow=
 github.com/craftsman-li/biz v0.0.0-20180901123855-c406ca9422ee/go.mod h1:KJXmwBIBYnFJrX6oCWkgd3S8vGmQNKLxl6o0gfgwErg=
+github.com/craftsman-li/gorm-adapter v0.0.0-20171006093545-e56c6daebd5e h1:7z6wEM+vprlBn67L5rcZdC0hvLOi+tTNX6oZYaBxAY8=
+github.com/craftsman-li/gorm-adapter v0.0.0-20171006093545-e56c6daebd5e/go.mod h1:m71tNvcr0J8WX9gg87b0M8y869brgiM1aBWYoyA6vis=
 github.com/craftsman-li/kit-wrapper v0.0.0-20180826092309-e736458d3bff h1:r5X91bjI+pbNTOUW62BusslWHBK+eEV513v2j4wb+xg=
 github.com/craftsman-li/kit-wrapper v0.0.0-20180826092309-e736458d3bff/go.mod h1:xbc8I5mB2AxXJaFeG2UPPPa5ISB4vZMryBV9LdpI3PA=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
