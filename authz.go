@@ -38,8 +38,9 @@ func NewAuthorizer(e *casbin.Enforcer) gin.HandlerFunc {
 
 		if permission, login := a.CheckPermission(c); !permission && !login {
 			a.RequirePermission(c.Writer)
+			return
 		} else if login {
-
+			return
 		} else {
 			c.Next()
 		}
