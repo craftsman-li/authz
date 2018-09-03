@@ -38,6 +38,10 @@ func NewAuthorizer(e *casbin.Enforcer) gin.HandlerFunc {
 
 		if permission, login := a.CheckPermission(c); !permission && !login {
 			a.RequirePermission(c.Writer)
+		} else if login {
+
+		} else {
+			c.Next()
 		}
 	}
 }
@@ -118,5 +122,5 @@ func (a *BasicAuthorizer) RequirePermission(w http.ResponseWriter) {
 // RequirePermission returns the 401 Unauthorized to the client
 func (a *BasicAuthorizer) NeedLogin(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusUnauthorized)
-	w.Write([]byte("403 Forbidden\n"))
+	w.Write([]byte("401 Unauthorized\n"))
 }
