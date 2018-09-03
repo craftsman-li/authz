@@ -77,6 +77,7 @@ func (a *BasicAuthorizer) GetUserName(c *gin.Context) string {
 			})
 		if nil != err {
 			a.NeedLogin(c.Writer)
+			return defaultUser
 		}
 		if token.Valid {
 			claims := token.Claims.(AuthzClaims)
