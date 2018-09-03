@@ -37,13 +37,12 @@ func NewAuthorizer(e *casbin.Enforcer) gin.HandlerFunc {
 		a := &BasicAuthorizer{enforcer: e}
 
 		if permission, login := a.CheckPermission(c); !permission && !login {
-			a.RequirePermission(c.Writer)
+			a.RequirePermission(c)
 			return
 		} else if login {
 			return
-		} else {
-			c.Next()
 		}
+		c.Next()
 	}
 }
 
@@ -81,7 +80,7 @@ func (a *BasicAuthorizer) GetUserName(c *gin.Context) string {
 				return []byte(AuthzConfig.SecretKey), nil
 			})
 		if nil != err {
-			a.NeedLogin(c.Writer)
+			a.NeedLogin(c)
 			return defaultUser
 		}
 		if token.Valid {
@@ -89,7 +88,7 @@ func (a *BasicAuthorizer) GetUserName(c *gin.Context) string {
 			session.Set(AuthzConfig.UserInfoKey, claims.CustomerInfo)
 			return claims.CustomerInfo.Id
 		} else {
-			a.NeedLogin(c.Writer)
+			a.NeedLogin(c)
 		}
 	} else {
 		return u.(CustomerInfo).Id
@@ -115,13 +114,13 @@ func (a *BasicAuthorizer) CheckPermission(c *gin.Context) (bool, bool) {
 }
 
 // RequirePermission returns the 403 Forbidden to the client
-func (a *BasicAuthorizer) RequirePermission(w http.ResponseWriter) {
-	w.WriteHeader(403)
-	w.Write([]byte("403 Forbidden\n"))
+func (a *BasicAuthorizer) RequirePermission(c *gin.Context) {
+	c.Writer.Write([]byte("403 Forbidden\n"))
+	c.AbortWithStatus(http.StatusForbidden)
 }
 
 // RequirePermission returns the 401 Unauthorized to the client
-func (a *BasicAuthorizer) NeedLogin(w http.ResponseWriter) {
-	w.WriteHeader(http.StatusUnauthorized)
-	w.Write([]byte("401 Unauthorized\n"))
+func (a *BasicAuthorizer) NeedLogin(c *gin.Context) {
+	c.Writer.Write([]byte("401 Unauthorized\n"))
+	c.AbortWithStatus(http.StatusUnauthorized)
 }
